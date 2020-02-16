@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Добавление статьи
+{% endblock title %}
+
+{% block content %}
+    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+    <form action="{% url 'create_note_url' %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            {% if field.errors %}
+{#                Проверка на наличие ошибок#}
+                <div class="alert alert-danger">
+                {{ field.errors }}
+                </div>
+            {% endif %}
+        {{ field.label }}
+        {{ field }}
+        </div>
+    {% endfor %}
+    <button type="submit" name="button" class="btn btn-primary">Добавить статью</button>
+    </form>
+    </div>
+{% endblock content %}

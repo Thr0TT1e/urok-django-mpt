@@ -1,0 +1,15 @@
+<div class="card mr-4 mb-4" style="width: 18rem;">
+    <img src="https://avatars.mds.yandex.net/get-pdb/2797189/f3c297df-9695-41e8-a102-d304802f7558/s1200?webp=false"
+         class="card-img-top" alt="">
+    <div class="card-body">
+        <h5 class="card-title">{{ note.Note_Title }}</h5>
+        <p class="card-text over" style="text-overflow: ellipsis;">{{ note.Note_Text }}</p>
+        <a href="{{ note.get_absolute_url }}" class="btn btn-primary">Читать полностью</a>
+    </div>
+    <div class="card-footer text-muted">
+        Тэги:
+        {% for tag in note.Note_FK_Tag.all %}
+            <a href="{{ tag.get_absolute_url }}">#{{ tag.Tag_Name }}</a>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+    {% for note in Tag.notes_set.all %}
+        {% include "News/includes/card_note_include.html" %}
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if Notes_content %}
+        {% for note in Notes_content %}
+            {% include "News/includes/card_note_include.html" %}
+        {% endfor %}
+    {% endif %}
+{% endblock content %}
+

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Изменение статьи "{{ Note.Note_Title }}"
+{% endblock title %}
+
+{% block content %}
+    <form action="{{ Note.get_update_url }}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {% if field.errors %}
+                    <div class="alert alert-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+                {{ field.label }}
+{#                Отрисовываем подписи к полям#}
+                {{ field }}
+{#                Отрисовываем сами поля#}
+            </div>
+        {% endfor %}
+    <button type="submit" name="button" class="btn btn-primary">
+        Редактировать статью
+    </button>
+    </form>
+{% endblock content %}

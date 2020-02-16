@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ note.Note_Title }}</h1>
+<p>{{ note.Note_Text }}</p>
+
+<ul>
+    {% for comment in note.comments_set.all %}
+    <li>{{ comment.Comment_Text }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
